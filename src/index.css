@@ -11,21 +11,21 @@
 }
 
 :root {
-  --primary: #ff6b6b;
-  --secondary: #4ecdc4;
-  --accent: #ffe66d;
-  --dark-text: #1a1a1a;
-  --light-bg: #ffffff; /* Pure white as requested */
-  --glass-bg: rgba(255, 255, 255, 0.8);
+  --primary: #000000; /* Pure Black for a Minimalist White Theme */
+  --secondary: #64748b;
+  --accent: #f1f5f9;
+  --dark-text: #000000;
+  --light-bg: #ffffff; 
+  --glass-bg: rgba(255, 255, 255, 0.95);
 }
 
 :root[data-theme='dark'] {
-  --primary: #ff6b6b;
-  --secondary: #4ecdc4;
-  --accent: #ffe66d;
+  --primary: #ffffff;
+  --secondary: #94a3b8;
+  --accent: #1e293b;
   --dark-text: #ffffff;
-  --light-bg: #0f172a; /* Sleek slate dark */
-  --glass-bg: rgba(15, 23, 42, 0.8);
+  --light-bg: #000000; /* Pure Black for contrast */
+  --glass-bg: rgba(0, 0, 0, 0.9);
 }
 
 @layer base {
@@ -39,27 +39,27 @@
 @layer components {
   .glass {
     background-color: var(--glass-bg);
-    @apply backdrop-blur-md border border-gray-100 dark:border-gray-800 shadow-xl;
+    @apply backdrop-blur-md border border-gray-200 dark:border-gray-800 shadow-sm;
   }
 
   .btn {
-    @apply px-6 py-2.5 rounded-full font-semibold transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer;
+    @apply px-6 py-2.5 rounded-full font-bold transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer;
   }
 
   .btn-primary {
     background-color: var(--primary);
-    color: white;
-    @apply hover:opacity-90 shadow-lg shadow-[var(--primary)]/20;
+    color: var(--light-bg);
+    @apply hover:opacity-90;
   }
 
   .card-hover {
-    @apply hover:-translate-y-2 hover:shadow-2xl transition-all duration-300;
+    @apply border border-gray-100 dark:border-gray-900 hover:border-primary transition-all duration-300;
   }
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -68,5 +68,5 @@
 
 ::-webkit-scrollbar-thumb {
   background-color: var(--primary);
-  @apply rounded-full opacity-20 hover:opacity-40 transition-opacity;
+  @apply rounded-full opacity-10 hover:opacity-30;
 }
