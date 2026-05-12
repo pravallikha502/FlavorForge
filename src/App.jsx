@@ -8,7 +8,7 @@ import { Toaster } from 'react-hot-toast'
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-light dark:bg-dark text-dark dark:text-light transition-colors duration-300">
+    <div className="min-h-screen flex flex-col">
       <ScrollToTop />
       <Toaster position="bottom-right" toastOptions={{ duration: 3000, style: { borderRadius: '16px', background: '#333', color: '#fff' } }} />
       <Navbar />

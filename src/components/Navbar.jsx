@@ -14,7 +14,7 @@ const Navbar = () => {
   const [isSettingsOpen, setIsSettingsOpen] = React.useState(false);
 
   return (
-    <nav className="glass sticky top-0 z-50 px-4 md:px-8 py-4 flex items-center justify-between transition-all duration-300 dark:glass-dark">
+    <nav className="glass-nav">
       <Link to="/" className="text-2xl font-black text-primary tracking-tighter flex items-center gap-2">
         <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/30">
           FF

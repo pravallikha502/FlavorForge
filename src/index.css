@@ -1,59 +1,56 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-  --color-accent: var(--accent);
-  --color-dark: var(--dark-text);
-  --color-light: var(--light-bg);
-
+  --color-primary: #ff6b6b;
+  --color-secondary: #4ecdc4;
+  --color-accent: #ffe66d;
+  
   --font-sans: "Outfit", system-ui, -apple-system, sans-serif;
 }
 
+/* Light Mode (Default) */
 :root {
-  --primary: #ff6b6b; /* The red-ish color from the screenshot */
-  --secondary: #4ecdc4;
-  --accent: #ffe66d;
-  --dark-text: #1a1a1a;
-  --light-bg: #f7f7f7; /* The soft gray background from the screenshot */
-  --glass-bg: rgba(255, 255, 255, 0.7);
+  --bg-main: #ffffff;
+  --text-main: #1a1a1a;
+  --nav-bg: rgba(255, 255, 255, 0.95);
+  --border-main: rgba(0, 0, 0, 0.05);
 }
 
-:root[data-theme='dark'] {
-  --primary: #ff6b6b;
-  --secondary: #4ecdc4;
-  --accent: #ffe66d;
-  --dark-text: #f7f7f7;
-  --light-bg: #1a1a1a;
-  --glass-bg: rgba(0, 0, 0, 0.4);
+/* Dark Mode */
+.dark {
+  --bg-main: #0f172a;
+  --text-main: #f8fafc;
+  --nav-bg: rgba(15, 23, 42, 0.95);
+  --border-main: rgba(255, 255, 255, 0.1);
 }
 
 @layer base {
   body {
-    background-color: var(--light-bg);
-    color: var(--dark-text);
-    @apply transition-colors duration-300;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    @apply transition-colors duration-500;
   }
 }
 
 @layer components {
-  .glass {
-    background-color: var(--glass-bg);
-    @apply backdrop-blur-md border border-white/20 shadow-xl;
-  }
-
   .btn {
     @apply px-6 py-2.5 rounded-full font-semibold transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer;
   }
 
   .btn-primary {
-    background-color: var(--primary);
-    color: white;
-    @apply hover:opacity-90 shadow-lg shadow-[var(--primary)]/25;
+    @apply bg-primary text-white hover:opacity-90 shadow-lg shadow-primary/25;
   }
 
-  .card-hover {
-    @apply hover:-translate-y-2 hover:shadow-2xl transition-all duration-300;
+  .glass-nav {
+    background-color: var(--nav-bg);
+    border-bottom: 1px solid var(--border-main);
+    @apply backdrop-blur-md sticky top-0 z-50 px-4 md:px-8 py-4 flex items-center justify-between transition-all duration-500;
+  }
+
+  .card-premium {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-main);
+    @apply rounded-[32px] overflow-hidden shadow-xl hover:-translate-y-2 transition-all duration-300;
   }
 }
 
@@ -67,6 +64,5 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--primary);
-  @apply rounded-full opacity-20 hover:opacity-40 transition-opacity;
+  @apply bg-primary rounded-full opacity-20 hover:opacity-40;
 }
