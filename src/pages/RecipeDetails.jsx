@@ -71,7 +71,7 @@ const RecipeDetails = () => {
     <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12">
       <button 
         onClick={() => navigate(-1)}
-        className="flex items-center gap-2 text-gray-500 hover:text-primary transition-colors font-bold mb-8 group"
+        className="flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:text-primary transition-colors font-bold mb-8 group"
       >
         <ChevronLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
         Back
@@ -176,7 +176,7 @@ const RecipeDetails = () => {
                   <div className="flex-shrink-0 w-10 h-10 rounded-2xl bg-white dark:bg-gray-900 border-2 border-primary/20 flex items-center justify-center font-bold text-primary group-hover:bg-primary group-hover:text-white transition-all">
                     {idx + 1}
                   </div>
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed pt-2">
+                  <p className="text-gray-600 dark:text-slate-200 leading-relaxed pt-2">
                     {step}
                   </p>
                 </div>
@@ -224,10 +224,10 @@ const RecipeDetails = () => {
                     className="flex items-center justify-between p-4 bg-white/50 dark:bg-black/20 rounded-2xl hover:bg-white dark:hover:bg-black/30 transition-colors cursor-pointer group"
                   >
                     <div className="flex items-center gap-4">
-                      <CheckCircle2 className="w-5 h-5 text-gray-300 group-hover:text-secondary transition-colors" />
-                      <span className="font-semibold text-gray-700 dark:text-gray-200">{ing.name}</span>
+                      <CheckCircle2 className="w-5 h-5 text-gray-300 dark:text-slate-600 group-hover:text-secondary transition-colors" />
+                      <span className="font-semibold text-gray-700 dark:text-slate-100">{ing.name}</span>
                     </div>
-                    <span className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-xs font-black rounded-lg">{ing.measure}</span>
+                    <span className="px-3 py-1 bg-gray-100 dark:bg-slate-800 text-gray-500 dark:text-slate-400 text-xs font-black rounded-lg">{ing.measure}</span>
                   </motion.li>
                 ))}
               </ul>

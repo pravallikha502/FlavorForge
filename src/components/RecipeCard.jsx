@@ -40,10 +40,10 @@ const RecipeCard = ({ recipe }) => {
             <PlayCircle className="text-white w-12 h-12" />
           </div>
           <div className="absolute bottom-3 left-3 flex gap-2">
-            <span className="px-3 py-1 bg-primary/90 backdrop-blur-md text-white text-[10px] font-bold rounded-full uppercase tracking-wider">
+            <span className="px-3 py-1 bg-primary text-white text-[10px] font-bold rounded-full uppercase tracking-wider">
               {recipe.strCategory}
             </span>
-            <span className="px-3 py-1 bg-white/90 dark:bg-black/60 backdrop-blur-md text-dark dark:text-white text-[10px] font-bold rounded-full uppercase tracking-wider">
+            <span className="px-3 py-1 bg-white/90 dark:bg-slate-800 backdrop-blur-md text-dark dark:text-white text-[10px] font-bold rounded-full uppercase tracking-wider border border-white/20 dark:border-slate-700">
               {recipe.strArea}
             </span>
           </div>

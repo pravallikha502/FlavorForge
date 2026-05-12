@@ -51,6 +51,13 @@ const Home = () => {
     setLoading(false);
   };
 
+  const handleLoadMore = async () => {
+    setLoading(true);
+    const more = await recipeService.getTrending();
+    setRecipes([...recipes, ...more]);
+    setLoading(false);
+  };
+
   return (
     <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12">
       {/* Hero Section */}
@@ -157,6 +164,17 @@ const Home = () => {
             </motion.div>
           )}
         </AnimatePresence>
+
+        {!loading && recipes.length > 0 && (
+          <div className="mt-16 text-center">
+            <button 
+              onClick={handleLoadMore}
+              className="btn btn-primary px-12 py-4 rounded-2xl text-lg shadow-xl hover:scale-105 transition-transform"
+            >
+              Explore More Delicious Recipes
+            </button>
+          </div>
+        )}
       </section>
     </div>
   );

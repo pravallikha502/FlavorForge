@@ -113,7 +113,7 @@ const SearchBar = ({ onSearch }) => {
           }}
           onFocus={() => setShowDropdown(true)}
           placeholder="Search recipes, ingredients, or cuisines..."
-          className="w-full pl-14 pr-12 py-4 rounded-2xl bg-white dark:bg-gray-900 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-gray-800 outline-none shadow-xl transition-all font-medium"
+          className="w-full pl-14 pr-12 py-4 rounded-2xl bg-white dark:bg-slate-900 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-800 outline-none shadow-xl transition-all font-medium text-dark dark:text-white placeholder-gray-400 dark:placeholder-slate-500"
         />
         {query && (
           <button 

@@ -73,7 +73,7 @@ const recipeService = {
   getTrending: async () => {
     try {
       // Fetch multiple random to simulate trending
-      const promises = Array.from({ length: 8 }).map(() => axios.get(`${BASE_URL}/random.php`));
+      const promises = Array.from({ length: 16 }).map(() => axios.get(`${BASE_URL}/random.php`));
       const results = await Promise.all(promises);
       return results.map(res => res.data.meals[0]).filter(Boolean);
     } catch (error) {
