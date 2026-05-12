@@ -15,9 +15,9 @@ const Footer = () => {
               Your ultimate destination for discovering delicious recipes from around the globe. Join our community of food lovers and start your culinary journey today.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="p-2 rounded-full bg-gray-50 dark:bg-gray-900 hover:bg-primary hover:text-white transition-all"><Camera className="w-5 h-5" /></a>
-              <a href="#" className="p-2 rounded-full bg-gray-50 dark:bg-gray-900 hover:bg-primary hover:text-white transition-all"><Send className="w-5 h-5" /></a>
-              <a href="#" className="p-2 rounded-full bg-gray-50 dark:bg-gray-900 hover:bg-primary hover:text-white transition-all"><Share2 className="w-5 h-5" /></a>
+              <a href="#" className="p-3 rounded-2xl bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-slate-200 hover:bg-primary hover:text-white transition-all shadow-sm"><Camera className="w-5 h-5" /></a>
+              <a href="#" className="p-3 rounded-2xl bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-slate-200 hover:bg-primary hover:text-white transition-all shadow-sm"><Send className="w-5 h-5" /></a>
+              <a href="#" className="p-3 rounded-2xl bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-slate-200 hover:bg-primary hover:text-white transition-all shadow-sm"><Share2 className="w-5 h-5" /></a>
             </div>
           </div>
 
