@@ -5,13 +5,16 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import { Toaster } from 'react-hot-toast'
+import SettingsModal from './components/SettingsModal'
 
 function App() {
+  const [isSettingsOpen, setIsSettingsOpen] = React.useState(false)
+
   return (
     <div className="min-h-screen flex flex-col">
       <ScrollToTop />
       <Toaster position="bottom-right" toastOptions={{ duration: 3000, style: { borderRadius: '16px', background: '#333', color: '#fff' } }} />
-      <Navbar />
+      <Navbar onOpenSettings={() => setIsSettingsOpen(true)} />
       <main className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -22,6 +25,10 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <SettingsModal 
+        isOpen={isSettingsOpen} 
+        onClose={() => setIsSettingsOpen(false)} 
+      />
     </div>
   )
 }
