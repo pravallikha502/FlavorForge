@@ -11,7 +11,7 @@ const Footer = () => {
             <Link to="/" className="text-3xl font-black text-primary tracking-tighter mb-6 block">
               Flavor<span className="text-dark dark:text-white">Forge</span>
             </Link>
-            <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-8">
+            <p className="text-gray-500 dark:text-white text-sm leading-relaxed mb-8 opacity-80">
               Your ultimate destination for discovering delicious recipes from around the globe. Join our community of food lovers and start your culinary journey today.
             </p>
             <div className="flex gap-4">
@@ -24,26 +24,26 @@ const Footer = () => {
           <div>
             <h4 className="font-bold mb-6 text-lg">Quick Links</h4>
             <ul className="space-y-4">
-              <li><Link to="/" className="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">Home</Link></li>
-              <li><Link to="/favorites" className="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">Favorites</Link></li>
-              <li><a href="#" className="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">Categories</a></li>
-              <li><a href="#" className="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">Our Blog</a></li>
+              <li><Link to="/" className="text-gray-500 dark:text-white hover:text-primary transition-colors opacity-80">Home</Link></li>
+              <li><Link to="/favorites" className="text-gray-500 dark:text-white hover:text-primary transition-colors opacity-80">Favorites</Link></li>
+              <li><a href="#" className="text-gray-500 dark:text-white hover:text-primary transition-colors opacity-80">Categories</a></li>
+              <li><a href="#" className="text-gray-500 dark:text-white hover:text-primary transition-colors opacity-80">Our Blog</a></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-bold mb-6 text-lg">Helpful Resources</h4>
             <ul className="space-y-4">
-              <li><a href="#" className="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">Cooking Tips</a></li>
-              <li><a href="#" className="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">Nutrition Guide</a></li>
-              <li><a href="#" className="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">FAQs</a></li>
-              <li><a href="#" className="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">Contact Us</a></li>
+              <li><a href="#" className="text-gray-500 dark:text-white hover:text-primary transition-colors opacity-80">Cooking Tips</a></li>
+              <li><a href="#" className="text-gray-500 dark:text-white hover:text-primary transition-colors opacity-80">Nutrition Guide</a></li>
+              <li><a href="#" className="text-gray-500 dark:text-white hover:text-primary transition-colors opacity-80">FAQs</a></li>
+              <li><a href="#" className="text-gray-500 dark:text-white hover:text-primary transition-colors opacity-80">Contact Us</a></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-bold mb-6 text-lg">Newsletter</h4>
-            <p className="text-gray-500 dark:text-gray-400 text-sm mb-6">
+            <p className="text-gray-500 dark:text-white text-sm mb-6 opacity-80">
               Subscribe to get the latest recipes and cooking tips straight to your inbox.
             </p>
             <form className="relative">
