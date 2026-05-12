@@ -79,14 +79,22 @@ const Home = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="relative h-[400px] md:h-[500px] rounded-[40px] overflow-hidden shadow-2xl shadow-primary/20"
+            className="relative h-[400px] md:h-[500px] rounded-[40px] overflow-hidden shadow-2xl shadow-primary/20 bg-gray-100 dark:bg-slate-900"
           >
-            {featured && (
+            {loading ? (
+              <div className="w-full h-full animate-pulse flex items-center justify-center">
+                <Sparkles className="w-12 h-12 text-primary/20" />
+              </div>
+            ) : featured && (
               <>
                 <img 
                   src={featured.strMealThumb} 
-                  className="w-full h-full object-cover" 
-                  alt={featured.strMeal} 
+                  className="w-full h-full object-cover transition-opacity duration-700" 
+                  alt={featured.strMeal}
+                  fetchpriority="high"
+                  loading="eager"
+                  onLoad={(e) => e.target.style.opacity = 1}
+                  style={{ opacity: 0 }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8 md:p-12">
                   <span className="px-4 py-1.5 bg-accent text-dark font-black text-xs rounded-full w-fit mb-4 uppercase tracking-widest">
