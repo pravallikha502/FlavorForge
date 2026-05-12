@@ -5,7 +5,7 @@ import CategorySlider from '../components/CategorySlider';
 import AIRecipeGenerator from '../components/AIRecipeGenerator';
 import recipeService from '../services/recipeService';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChefHat, TrendingUp, Search as SearchIcon } from 'lucide-react';
+import { ChefHat, TrendingUp, Search as SearchIcon, Sparkles } from 'lucide-react';
 
 const Home = () => {
   const [recipes, setRecipes] = useState([]);
@@ -91,7 +91,7 @@ const Home = () => {
                   src={featured.strMealThumb} 
                   className="w-full h-full object-cover transition-opacity duration-700" 
                   alt={featured.strMeal}
-                  fetchpriority="high"
+                  fetchPriority="high"
                   loading="eager"
                   onLoad={(e) => e.target.style.opacity = 1}
                   style={{ opacity: 0 }}
