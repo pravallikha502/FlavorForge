@@ -181,7 +181,7 @@ const MealPlanner = () => {
                   placeholder="Search any recipe (e.g. Pasta, Burger)..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full px-6 py-4 rounded-2xl bg-gray-50 dark:bg-slate-900 border-none outline-none focus:ring-2 ring-primary/20 font-bold"
+                  className="w-full px-6 py-4 rounded-2xl bg-white dark:bg-slate-900 border-none outline-none focus:ring-2 ring-primary/20 font-bold text-dark dark:text-white placeholder-gray-400 dark:placeholder-slate-500 shadow-inner"
                 />
                 {searching && <Loader2 className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 animate-spin text-primary" />}
               </div>

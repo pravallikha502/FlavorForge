@@ -82,14 +82,14 @@ const Home = () => {
             className="relative h-[400px] md:h-[500px] rounded-[40px] overflow-hidden shadow-2xl shadow-primary/20 bg-gray-100 dark:bg-slate-900"
           >
             {loading ? (
-              <div className="w-full h-full animate-pulse flex items-center justify-center">
+              <div className="w-full h-full shimmer flex items-center justify-center">
                 <Sparkles className="w-12 h-12 text-primary/20" />
               </div>
             ) : featured && (
               <>
                 <img 
                   src={featured.strMealThumb} 
-                  className="w-full h-full object-cover transition-opacity duration-700" 
+                  className="w-full h-full object-cover transition-opacity duration-300 ease-in-out" 
                   alt={featured.strMeal}
                   fetchPriority="high"
                   loading="eager"
