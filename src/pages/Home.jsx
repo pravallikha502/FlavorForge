@@ -11,12 +11,14 @@ const Home = () => {
   const [recipes, setRecipes] = useState([]);
   const [categories, setCategories] = useState([]);
   const [activeCategory, setActiveCategory] = useState('All');
-  const [loading, setLoading] = useState(true);
-  const [featured, setFeatured] = useState(null);
+  const [featured, setFeatured] = useState(() => {
+    const saved = localStorage.getItem('flavorforge_featured_cache');
+    return saved ? JSON.parse(saved) : null;
+  });
+  const [loading, setLoading] = useState(!featured);
 
   useEffect(() => {
     const init = async () => {
-      setLoading(true);
       const [cats, trending, random] = await Promise.all([
         recipeService.listCategories(),
         recipeService.getTrending(),
@@ -25,6 +27,7 @@ const Home = () => {
       setCategories(cats);
       setRecipes(trending);
       setFeatured(random);
+      localStorage.setItem('flavorforge_featured_cache', JSON.stringify(random));
       setLoading(false);
     };
     init();
