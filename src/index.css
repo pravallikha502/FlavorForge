@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-dark: var(--dark-text);
+  --color-light: var(--light-bg);
+
+  --font-sans: "Outfit", system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  --primary: #ff6b6b;
+  --secondary: #4ecdc4;
+  --accent: #ffe66d;
+  --dark-text: #1a1a1a;
+  --light-bg: #ffffff; /* Pure white as requested */
+  --glass-bg: rgba(255, 255, 255, 0.8);
+}
+
+:root[data-theme='dark'] {
+  --primary: #ff6b6b;
+  --secondary: #4ecdc4;
+  --accent: #ffe66d;
+  --dark-text: #ffffff;
+  --light-bg: #0f172a; /* Sleek slate dark */
+  --glass-bg: rgba(15, 23, 42, 0.8);
+}
+
+@layer base {
+  body {
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+    @apply transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .glass {
+    background-color: var(--glass-bg);
+    @apply backdrop-blur-md border border-gray-100 dark:border-gray-800 shadow-xl;
+  }
+
+  .btn {
+    @apply px-6 py-2.5 rounded-full font-semibold transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer;
+  }
+
+  .btn-primary {
+    background-color: var(--primary);
+    color: white;
+    @apply hover:opacity-90 shadow-lg shadow-[var(--primary)]/20;
+  }
+
+  .card-hover {
+    @apply hover:-translate-y-2 hover:shadow-2xl transition-all duration-300;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  @apply rounded-full opacity-20 hover:opacity-40 transition-opacity;
+}
