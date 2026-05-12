@@ -80,8 +80,8 @@ const MealPlanner = () => {
             Weekly <span className="text-primary">Planner</span>
             <Calendar className="text-primary w-8 h-8" />
           </h1>
-          <p className="text-gray-500 dark:text-slate-400 font-medium">
-            Search and add any recipe directly to your daily plan.
+          <p className="text-gray-500 dark:text-white font-medium opacity-80">
+            Add multiple recipes to each meal slot to create your perfect daily menu.
           </p>
         </div>
       </div>

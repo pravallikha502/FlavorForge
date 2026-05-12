@@ -15,7 +15,7 @@ const ShoppingList = () => {
             Shopping <span className="text-secondary">List</span>
             <ShoppingCart className="text-secondary w-8 h-8" />
           </h1>
-          <p className="text-gray-500 dark:text-gray-400 font-medium">
+          <p className="text-gray-500 dark:text-white font-medium opacity-80">
             Manage your ingredients and prepare for your next culinary masterpiece.
           </p>
         </div>
@@ -51,7 +51,7 @@ const ShoppingList = () => {
               <ShoppingCart className="w-12 h-12" />
             </div>
             <h2 className="text-3xl font-bold mb-4">Your list is empty</h2>
-            <p className="text-gray-500 dark:text-slate-400 mb-10 max-w-md">
+            <p className="text-gray-500 dark:text-white mb-10 max-w-md opacity-80">
               Add ingredients from any recipe detail page to keep track of what you need to buy.
             </p>
             <Link to="/" className="btn btn-primary px-10 py-4 text-lg">
