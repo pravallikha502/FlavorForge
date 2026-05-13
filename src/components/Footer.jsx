@@ -50,7 +50,7 @@ const Footer = () => {
               <input 
                 type="email" 
                 placeholder="Email Address"
-                className="w-full px-6 py-4 rounded-2xl bg-gray-50 dark:bg-gray-900 border-none outline-none focus:ring-2 ring-primary/20 text-sm"
+                className="w-full px-6 py-4 rounded-2xl bg-gray-50 dark:bg-gray-900 border-none outline-none focus:ring-2 ring-primary/20 text-sm text-dark dark:text-white placeholder-gray-400 dark:placeholder-slate-500"
               />
               <button className="absolute right-2 top-2 p-2 bg-primary text-white rounded-xl shadow-lg shadow-primary/20">
                 <Mail className="w-5 h-5" />
