@@ -1,13 +1,21 @@
 import axios from 'axios';
 
 const BASE_URL = 'https://www.themealdb.com/api/json/v1/1';
+const cache = new Map();
 
 const recipeService = {
+  fetchWithCache: async (url) => {
+    if (cache.has(url)) return cache.get(url);
+    const response = await axios.get(url);
+    cache.set(url, response.data);
+    return response.data;
+  },
+
   // Search recipes by name
   searchByName: async (name) => {
     try {
-      const response = await axios.get(`${BASE_URL}/search.php?s=${name}`);
-      return response.data.meals || [];
+      const data = await recipeService.fetchWithCache(`${BASE_URL}/search.php?s=${name}`);
+      return data.meals || [];
     } catch (error) {
       console.error('Error searching by name:', error);
       return [];
@@ -17,8 +25,8 @@ const recipeService = {
   // Get recipe by ID
   getById: async (id) => {
     try {
-      const response = await axios.get(`${BASE_URL}/lookup.php?i=${id}`);
-      return response.data.meals ? response.data.meals[0] : null;
+      const data = await recipeService.fetchWithCache(`${BASE_URL}/lookup.php?i=${id}`);
+      return data.meals ? data.meals[0] : null;
     } catch (error) {
       console.error('Error getting by ID:', error);
       return null;
@@ -28,8 +36,8 @@ const recipeService = {
   // List all categories
   listCategories: async () => {
     try {
-      const response = await axios.get(`${BASE_URL}/categories.php`);
-      return response.data.categories || [];
+      const data = await recipeService.fetchWithCache(`${BASE_URL}/categories.php`);
+      return data.categories || [];
     } catch (error) {
       console.error('Error listing categories:', error);
       return [];
@@ -39,8 +47,8 @@ const recipeService = {
   // Filter by category
   getByCategory: async (category) => {
     try {
-      const response = await axios.get(`${BASE_URL}/filter.php?c=${category}`);
-      return response.data.meals || [];
+      const data = await recipeService.fetchWithCache(`${BASE_URL}/filter.php?c=${category}`);
+      return data.meals || [];
     } catch (error) {
       console.error('Error getting by category:', error);
       return [];
@@ -50,8 +58,8 @@ const recipeService = {
   // Filter by area (cuisine)
   getByArea: async (area) => {
     try {
-      const response = await axios.get(`${BASE_URL}/filter.php?a=${area}`);
-      return response.data.meals || [];
+      const data = await recipeService.fetchWithCache(`${BASE_URL}/filter.php?a=${area}`);
+      return data.meals || [];
     } catch (error) {
       console.error('Error getting by area:', error);
       return [];
@@ -69,13 +77,12 @@ const recipeService = {
     }
   },
 
-  // Get trending recipes (using random for now since TheMealDB doesn't have a trending endpoint)
   getTrending: async () => {
     try {
-      // Fetch multiple random to simulate trending
-      const promises = Array.from({ length: 16 }).map(() => axios.get(`${BASE_URL}/random.php`));
-      const results = await Promise.all(promises);
-      return results.map(res => res.data.meals[0]).filter(Boolean);
+      // Single call to get a large list, then shuffle/limit
+      const data = await recipeService.fetchWithCache(`${BASE_URL}/search.php?s=`);
+      const meals = data.meals || [];
+      return meals.sort(() => 0.5 - Math.random()).slice(0, 16);
     } catch (error) {
       console.error('Error getting trending:', error);
       return [];
