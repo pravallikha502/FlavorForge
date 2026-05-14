@@ -1,8 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Camera, Send, Share2, Globe, Mail } from 'lucide-react';
+import { Camera, Send, Share2, Mail } from 'lucide-react';
+import toast from 'react-hot-toast';
 
 const Footer = () => {
+  const handleNewsletterSubmit = (e) => {
+    e.preventDefault();
+    const email = e.target.querySelector('input').value;
+    if (email) {
+      toast.success(`Subscribed successfully with ${email}!`);
+      e.target.reset();
+    }
+  };
+
+  const handleSocialClick = (platform) => {
+    toast.success(`${platform} link coming soon!`, {
+      icon: '🚀',
+    });
+  };
+
   return (
     <footer className="bg-slate-950 text-white border-t border-slate-900 pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
@@ -15,9 +31,9 @@ const Footer = () => {
               Your ultimate destination for discovering delicious recipes from around the globe. Join our community of food lovers and start your culinary journey today.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="p-3 rounded-2xl bg-slate-900 text-slate-300 hover:bg-primary hover:text-white transition-all shadow-sm"><Camera className="w-5 h-5" /></a>
-              <a href="#" className="p-3 rounded-2xl bg-slate-900 text-slate-300 hover:bg-primary hover:text-white transition-all shadow-sm"><Send className="w-5 h-5" /></a>
-              <a href="#" className="p-3 rounded-2xl bg-slate-900 text-slate-300 hover:bg-primary hover:text-white transition-all shadow-sm"><Share2 className="w-5 h-5" /></a>
+              <button onClick={() => handleSocialClick('Instagram')} className="p-3 rounded-2xl bg-slate-900 text-slate-300 hover:bg-primary hover:text-white transition-all shadow-sm"><Camera className="w-5 h-5" /></button>
+              <button onClick={() => handleSocialClick('Telegram')} className="p-3 rounded-2xl bg-slate-900 text-slate-300 hover:bg-primary hover:text-white transition-all shadow-sm"><Send className="w-5 h-5" /></button>
+              <button onClick={() => handleSocialClick('Community')} className="p-3 rounded-2xl bg-slate-900 text-slate-300 hover:bg-primary hover:text-white transition-all shadow-sm"><Share2 className="w-5 h-5" /></button>
             </div>
           </div>
 
@@ -46,13 +62,14 @@ const Footer = () => {
             <p className="text-slate-400 text-sm mb-6">
               Subscribe to get the latest recipes and cooking tips straight to your inbox.
             </p>
-            <form className="relative">
+            <form className="relative" onSubmit={handleNewsletterSubmit}>
               <input 
                 type="email" 
                 placeholder="Email Address"
+                required
                 className="w-full px-6 py-4 rounded-2xl bg-slate-900 border-none outline-none focus:ring-2 ring-primary/20 text-sm text-white placeholder-slate-500"
               />
-              <button className="absolute right-2 top-2 p-2 bg-primary text-white rounded-xl shadow-lg shadow-primary/20">
+              <button type="submit" className="absolute right-2 top-2 p-2 bg-primary text-white rounded-xl shadow-lg shadow-primary/20">
                 <Mail className="w-5 h-5" />
               </button>
             </form>
