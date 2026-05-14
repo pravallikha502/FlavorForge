@@ -118,7 +118,7 @@ const Home = () => {
       {/* Category Filter */}
       <section className="mb-12">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl font-bold flex items-center gap-3">
+          <h2 className="text-2xl font-bold flex items-center gap-3 text-dark dark:text-white">
             <SearchIcon className="text-primary w-6 h-6" />
             Browse by Category
           </h2>
@@ -136,11 +136,11 @@ const Home = () => {
       {/* Recipes Grid */}
       <section>
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl font-bold flex items-center gap-3 capitalize">
+          <h2 className="text-2xl font-bold flex items-center gap-3 capitalize text-dark dark:text-white">
             {activeCategory === 'All' ? <TrendingUp className="text-primary w-6 h-6" /> : <ChefHat className="text-primary w-6 h-6" />}
             {activeCategory === 'All' ? 'Trending Recipes' : `${activeCategory} Recipes`}
           </h2>
-          <p className="text-sm font-bold text-gray-400 uppercase tracking-widest">{recipes.length} Results</p>
+          <p className="text-sm font-bold text-gray-400 dark:text-slate-500 uppercase tracking-widest">{recipes.length} Results</p>
         </div>
 
         <AnimatePresence mode="wait">
@@ -169,7 +169,8 @@ const Home = () => {
                 ))
               ) : (
                 <div className="col-span-full py-20 text-center">
-                  <h3 className="text-2xl font-bold text-gray-400">No recipes found. Try searching for something else!</h3>
+                  <h3 className="text-2xl font-bold text-gray-400 dark:text-white mb-2">No recipes found.</h3>
+                  <p className="text-gray-500 dark:text-slate-400">Try searching for something else!</p>
                 </div>
               )}
             </motion.div>
