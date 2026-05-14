@@ -45,9 +45,30 @@ const Footer = () => {
               Your ultimate destination for discovering delicious recipes from around the globe. Join our community of food lovers and start your culinary journey today.
             </p>
             <div className="flex gap-4">
-              <button onClick={() => handleSocialClick('Instagram')} className="p-3 rounded-2xl bg-slate-900 text-slate-300 hover:bg-primary hover:text-white transition-all shadow-sm"><Camera className="w-5 h-5" /></button>
-              <button onClick={() => handleSocialClick('Telegram')} className="p-3 rounded-2xl bg-slate-900 text-slate-300 hover:bg-primary hover:text-white transition-all shadow-sm"><Send className="w-5 h-5" /></button>
-              <button onClick={() => handleSocialClick('Community')} className="p-3 rounded-2xl bg-slate-900 text-slate-300 hover:bg-primary hover:text-white transition-all shadow-sm"><Share2 className="w-5 h-5" /></button>
+              <a 
+                href="https://instagram.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-3 rounded-2xl bg-slate-900 text-slate-300 hover:bg-primary hover:text-white transition-all shadow-sm hover:-translate-y-1"
+              >
+                <Camera className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://twitter.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-3 rounded-2xl bg-slate-900 text-slate-300 hover:bg-primary hover:text-white transition-all shadow-sm hover:-translate-y-1"
+              >
+                <Send className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://facebook.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-3 rounded-2xl bg-slate-900 text-slate-300 hover:bg-primary hover:text-white transition-all shadow-sm hover:-translate-y-1"
+              >
+                <Share2 className="w-5 h-5" />
+              </a>
             </div>
           </div>
 
