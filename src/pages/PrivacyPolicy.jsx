@@ -22,31 +22,31 @@ const PrivacyPolicy = () => {
         <h1 className="text-4xl md:text-5xl font-black">Privacy <span className="text-primary">Policy</span></h1>
       </div>
 
-      <div className="prose prose-lg dark:prose-invert max-w-none space-y-8 text-gray-600 dark:text-white">
+      <div className="max-w-none space-y-12 text-gray-600 dark:text-white">
         <section>
-          <h2 className="text-2xl font-bold text-dark dark:text-white mb-4">1. Information We Collect</h2>
-          <p>
+          <h2 className="text-2xl font-bold text-dark dark:text-white mb-6">1. Information We Collect</h2>
+          <p className="leading-relaxed text-lg opacity-90">
             At FlavorForge, we respect your privacy. We do not collect any personal identification information unless you explicitly provide it (for example, through a newsletter subscription). We do store your favorite recipes and meal plans locally in your browser's storage to enhance your experience.
           </p>
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold text-dark dark:text-white mb-4">2. Local Storage</h2>
-          <p>
+          <h2 className="text-2xl font-bold text-dark dark:text-white mb-6">2. Local Storage</h2>
+          <p className="leading-relaxed text-lg opacity-90">
             FlavorForge uses "Local Storage" to save your favorites, meal plans, and shopping lists. This data remains on your device and is not transmitted to our servers.
           </p>
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold text-dark dark:text-white mb-4">3. Third-Party Services</h2>
-          <p>
+          <h2 className="text-2xl font-bold text-dark dark:text-white mb-6">3. Third-Party Services</h2>
+          <p className="leading-relaxed text-lg opacity-90">
             We use TheMealDB API to provide recipe data. Please note that when you access recipes, you are interacting with third-party content.
           </p>
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold text-dark dark:text-white mb-4">4. Updates</h2>
-          <p>
+          <h2 className="text-2xl font-bold text-dark dark:text-white mb-6">4. Updates</h2>
+          <p className="leading-relaxed text-lg opacity-90">
             We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.
           </p>
         </section>

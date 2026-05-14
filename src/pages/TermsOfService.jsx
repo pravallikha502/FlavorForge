@@ -22,31 +22,31 @@ const TermsOfService = () => {
         <h1 className="text-4xl md:text-5xl font-black">Terms of <span className="text-primary">Service</span></h1>
       </div>
 
-      <div className="prose prose-lg dark:prose-invert max-w-none space-y-8 text-gray-600 dark:text-white">
+      <div className="max-w-none space-y-12 text-gray-600 dark:text-white">
         <section>
-          <h2 className="text-2xl font-bold text-dark dark:text-white mb-4">1. Acceptance of Terms</h2>
-          <p>
+          <h2 className="text-2xl font-bold text-dark dark:text-white mb-6">1. Acceptance of Terms</h2>
+          <p className="leading-relaxed text-lg opacity-90">
             By accessing and using FlavorForge, you accept and agree to be bound by the terms and provision of this agreement.
           </p>
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold text-dark dark:text-white mb-4">2. Use License</h2>
-          <p>
+          <h2 className="text-2xl font-bold text-dark dark:text-white mb-6">2. Use License</h2>
+          <p className="leading-relaxed text-lg opacity-90">
             Permission is granted to temporarily use the FlavorForge application for personal, non-commercial transitory viewing only.
           </p>
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold text-dark dark:text-white mb-4">3. Disclaimer</h2>
-          <p>
+          <h2 className="text-2xl font-bold text-dark dark:text-white mb-6">3. Disclaimer</h2>
+          <p className="leading-relaxed text-lg opacity-90">
             The materials on FlavorForge are provided on an 'as is' basis. FlavorForge makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
           </p>
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold text-dark dark:text-white mb-4">4. Limitations</h2>
-          <p>
+          <h2 className="text-2xl font-bold text-dark dark:text-white mb-6">4. Limitations</h2>
+          <p className="leading-relaxed text-lg opacity-90">
             In no event shall FlavorForge or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use FlavorForge.
           </p>
         </section>
