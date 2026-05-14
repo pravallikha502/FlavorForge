@@ -16,22 +16,28 @@ const SearchBar = ({ onSearch }) => {
   const recognitionRef = useRef(null);
 
   useEffect(() => {
-    if ('WebkitSpeechRecognition' in window || 'speechRecognition' in window) {
-      const SpeechRecognition = window.WebkitSpeechRecognition || window.SpeechRecognition;
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition;
+    
+    if (SpeechRecognition) {
       recognitionRef.current = new SpeechRecognition();
       recognitionRef.current.continuous = false;
       recognitionRef.current.interimResults = false;
       recognitionRef.current.lang = 'en-US';
 
+      recognitionRef.current.onstart = () => {
+        setIsListening(true);
+      };
+
       recognitionRef.current.onresult = (event) => {
         const transcript = event.results[0][0].transcript;
         setQuery(transcript);
-        setIsListening(false);
         onSearch(transcript);
         addToHistory(transcript);
+        setIsListening(false);
       };
 
-      recognitionRef.current.onerror = () => {
+      recognitionRef.current.onerror = (event) => {
+        console.error('Speech recognition error:', event.error);
         setIsListening(false);
       };
 
@@ -46,8 +52,11 @@ const SearchBar = ({ onSearch }) => {
       if (isListening) {
         recognitionRef.current.stop();
       } else {
-        setIsListening(true);
-        recognitionRef.current.start();
+        try {
+          recognitionRef.current.start();
+        } catch (e) {
+          console.error(e);
+        }
       }
     } else {
       alert('Voice search is not supported in this browser.');
@@ -133,9 +142,11 @@ const SearchBar = ({ onSearch }) => {
         </button>
         <button 
           type="submit"
-          className="absolute right-2 p-3 bg-primary text-white rounded-xl hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
+          onClick={handleSubmit}
+          className="absolute right-2 p-3 bg-primary text-white rounded-xl hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20 group"
+          aria-label="Submit search"
         >
-          <ArrowRight className="w-5 h-5" />
+          <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
         </button>
       </form>
 
