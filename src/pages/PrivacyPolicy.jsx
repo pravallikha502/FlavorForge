@@ -22,7 +22,7 @@ const PrivacyPolicy = () => {
         <h1 className="text-4xl md:text-5xl font-black">Privacy <span className="text-primary">Policy</span></h1>
       </div>
 
-      <div className="prose prose-lg dark:prose-invert max-w-none space-y-8 text-gray-600 dark:text-gray-300">
+      <div className="prose prose-lg dark:prose-invert max-w-none space-y-8 text-gray-600 dark:text-white">
         <section>
           <h2 className="text-2xl font-bold text-dark dark:text-white mb-4">1. Information We Collect</h2>
           <p>
