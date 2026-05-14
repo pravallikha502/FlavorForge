@@ -4,11 +4,25 @@ import { Camera, Send, Share2, Mail } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 const Footer = () => {
-  const handleNewsletterSubmit = (e) => {
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+
+  const handleNewsletterSubmit = async (e) => {
     e.preventDefault();
     const email = e.target.querySelector('input').value;
+    
     if (email) {
-      toast.success(`Subscribed successfully with ${email}!`);
+      setIsSubmitting(true);
+      const loadingToast = toast.loading('Sending subscription request...');
+      
+      // Simulate real API latency
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      toast.success(`Welcome to FlavorForge! Newsletter sent to ${email}`, {
+        id: loadingToast,
+        icon: '✉️',
+      });
+      
+      setIsSubmitting(false);
       e.target.reset();
     }
   };
@@ -69,8 +83,16 @@ const Footer = () => {
                 required
                 className="w-full px-6 py-4 rounded-2xl bg-slate-900 border-none outline-none focus:ring-2 ring-primary/20 text-sm text-white placeholder-slate-500"
               />
-              <button type="submit" className="absolute right-2 top-2 p-2 bg-primary text-white rounded-xl shadow-lg shadow-primary/20">
-                <Mail className="w-5 h-5" />
+              <button 
+                type="submit" 
+                disabled={isSubmitting}
+                className={`absolute right-2 top-2 p-2 bg-primary text-white rounded-xl shadow-lg shadow-primary/20 transition-all ${isSubmitting ? 'opacity-50 scale-95 cursor-not-allowed' : 'hover:scale-105 active:scale-95'}`}
+              >
+                {isSubmitting ? (
+                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                ) : (
+                  <Mail className="w-5 h-5" />
+                )}
               </button>
             </form>
           </div>
