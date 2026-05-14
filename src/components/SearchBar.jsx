@@ -21,7 +21,7 @@ const SearchBar = ({ onSearch }) => {
     if (SpeechRecognition) {
       recognitionRef.current = new SpeechRecognition();
       recognitionRef.current.continuous = false;
-      recognitionRef.current.interimResults = false;
+      recognitionRef.current.interimResults = true;
       recognitionRef.current.lang = 'en-US';
 
       recognitionRef.current.onstart = () => {
@@ -29,11 +29,18 @@ const SearchBar = ({ onSearch }) => {
       };
 
       recognitionRef.current.onresult = (event) => {
-        const transcript = event.results[0][0].transcript;
+        const transcript = Array.from(event.results)
+          .map(result => result[0])
+          .map(result => result.transcript)
+          .join('');
+        
         setQuery(transcript);
-        onSearch(transcript);
-        addToHistory(transcript);
-        setIsListening(false);
+        
+        if (event.results[0].isFinal) {
+          onSearch(transcript);
+          addToHistory(transcript);
+          setIsListening(false);
+        }
       };
 
       recognitionRef.current.onerror = (event) => {
@@ -79,7 +86,7 @@ const SearchBar = ({ onSearch }) => {
         const results = await recipeService.searchByName(query);
         setSuggestions(results.slice(0, 5));
       };
-      const timeoutId = setTimeout(fetchSuggestions, 300);
+      const timeoutId = setTimeout(fetchSuggestions, 150);
       return () => clearTimeout(timeoutId);
     } else {
       setSuggestions([]);
