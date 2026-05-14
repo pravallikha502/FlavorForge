@@ -64,8 +64,8 @@ const Footer = () => {
             © 2026 FlavorForge. All rights reserved. Built with ❤️ for Food Lovers.
           </p>
           <div className="flex gap-8 text-xs font-bold text-gray-400 uppercase tracking-widest">
-            <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
+            <Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

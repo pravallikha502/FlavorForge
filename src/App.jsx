@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { Home, RecipeDetails, Favorites, ShoppingList, MealPlanner } from './pages'
+import { Home, RecipeDetails, Favorites, ShoppingList, MealPlanner, PrivacyPolicy, TermsOfService } from './pages'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
@@ -22,6 +22,8 @@ function App() {
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/shopping-list" element={<ShoppingList />} />
           <Route path="/planner" element={<MealPlanner />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsOfService />} />
         </Routes>
       </main>
       <Footer />
